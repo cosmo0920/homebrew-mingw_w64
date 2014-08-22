@@ -5,6 +5,8 @@ class BinutilsMingw32 < Formula
   url "http://ftp.gnu.org/gnu/binutils/binutils-2.24.tar.bz2"
   sha256 "e5e8c5be9664e7f7f96e0d09919110ab5ad597794f5b1809871177a0f0f14137"
 
+  keg_only 'Conflicts with binutils in main repository.'
+
   depends_on "gcc48" => :build
 
   def install
