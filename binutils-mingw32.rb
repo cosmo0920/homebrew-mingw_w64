@@ -24,6 +24,7 @@ class BinutilsMingw32 < Formula
     ]
 
     system "./configure", *args
+    system "make"
     system "make install-strip"
   end
 
