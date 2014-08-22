@@ -12,11 +12,15 @@ class MingwHeaders32 < Formula
     args = %W[
       --host=i686-w64-mingw32
       --prefix=#{install_prefix}
+      --enable-sdk=all
+      --enable-secure-api
     ]
 
-    system "./mingw-w64-headers/configure", *args
-    system "make"
-    system "make install-strip"
+	mkdir "build-headers" do
+      system "../mingw-w64-headers/configure", *args
+      system "make"
+      system "make install"
+    end
   end
 
 end
