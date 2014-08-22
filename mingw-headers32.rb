@@ -16,7 +16,7 @@ class MingwHeaders32 < Formula
       --enable-secure-api
     ]
 
-	mkdir "build-headers" do
+    mkdir "build-headers" do
       system "../mingw-w64-headers/configure", *args
       system "make"
       system "make install"
