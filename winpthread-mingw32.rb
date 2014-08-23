@@ -15,6 +15,9 @@ class WinpthreadMingw32 < Formula
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
 
     args = %W[
+      CC=i686-w64-mingw32-gcc
+      CXX=i686-w64-mingw32-g++
+      CPP=i686-w64-mingw32-cpp
       --host=#{target_arch}
       --prefix=#{install_prefix}/#{target_arch}
     ]
