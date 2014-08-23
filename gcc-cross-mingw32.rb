@@ -9,7 +9,6 @@ class GccCrossMingw32 < Formula
   depends_on "cosmo0920/mingw_w64/gcc-mingw32"
   depends_on "cosmo0920/mingw_w64/runtime-mingw32"
 
-
   def install
     install_prefix="/usr/local/mingw/"
     path = ENV["PATH"]
