@@ -10,13 +10,13 @@ class WinpthreadMingw32 < Formula
 
   def install
     target_arch="i686-w64-mingw32"
-    install_prefix="/usr/local/mingw/#{target_arch}"
+    install_prefix="/usr/local/mingw/"
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
 
     args = %W[
       --host=#{target_arch}
-      --prefix=#{install_prefix}
+      --prefix=#{install_prefix}/#{target_arch}
     ]
 
     chdir "mingw-w64-libraries/winpthreads" do
