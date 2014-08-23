@@ -18,6 +18,13 @@ class GccMingw32 < Formula
     install_prefix="/usr/local/mingw/"
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
+    target_arch = i686-w64-mingw32
+
+    # create symlink to `/usr/local/mingw//mingw/include`
+    chdir "#{install_prefix}" do
+      rmdir "mingw" if Dir.exist?("mingw")
+      system "ln -s #{target_arch} mingw"
+    end
 
     version_suffix = version.to_s.slice(/\d\.\d/)
 
@@ -26,7 +33,7 @@ class GccMingw32 < Formula
       CXX=g++-4.8
       CPP=cpp-4.8
       LD=gcc-4.8
-      --target=i686-w64-mingw32
+      --target=#{target_arch}
       --prefix=#{install_prefix}
       --with-sysroot=#{install_prefix}
       --disable-multilib
