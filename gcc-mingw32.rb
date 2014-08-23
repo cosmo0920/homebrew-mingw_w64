@@ -19,6 +19,10 @@ class GccMingw32 < Formula
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
     args = %W[
+      CC=gcc-4.8
+      CXX=g++-4.8
+      CPP=cpp-4.8
+      LD=gcc-4.8
       --target=i686-w64-mingw32
       --prefix=#{install_prefix}
       --with-sysroot=#{install_prefix}
