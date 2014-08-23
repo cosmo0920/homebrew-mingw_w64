@@ -52,7 +52,7 @@ class GccCrossMingw32 < Formula
       system "make install"
     end
 
-    chdir "#{install_prefix}/#{target_arch}" do
+    chdir "#{install_prefix}/#{target_arch}/lib" do
       system "ln -s ../../lib/gcc/#{target_arch}/lib/libgcc_s.a ./"
     end
 
