@@ -26,6 +26,8 @@ class GccMingw32 < Formula
       system "ln -s #{target_arch} mingw"
     end
 
+    version_suffix = version.to_s.slice(/\d\.\d/)
+
     args = %W[
       CC=gcc-4.8
       CXX=g++-4.8
@@ -44,6 +46,7 @@ class GccMingw32 < Formula
       --enable-threads=win32
       --disable-sjlj-exceptions
       --enable-languages=c,c++,objc,obj-c++
+      --program-suffix=-#{version_suffix}
       --with-gmp=#{Formula["gmp4"].opt_prefix}
       --with-mpfr=#{Formula["mpfr2"].opt_prefix}
       --with-mpc=#{Formula["libmpc08"].opt_prefix}
