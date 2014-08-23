@@ -32,7 +32,7 @@ class RuntimeMingw64 < Formula
       --disable-lib32 --enable-lib64
     ]
 
-    mkdir "mingw-w64-crt" do
+    chdir "mingw-w64-crt" do
       system "./configure", *args
       system "make"
       system "make install"
