@@ -11,6 +11,9 @@ class WinpthreadMingw32 < Formula
   def install
     target_arch="i686-w64-mingw32"
     install_prefix="/usr/local/mingw/#{target_arch}"
+    path = ENV["PATH"]
+    ENV.prepend_path 'PATH', "#{install_prefix}/bin"
+
     args = %W[
       --host=#{target_arch}
       --prefix=#{install_prefix}
@@ -21,6 +24,8 @@ class WinpthreadMingw32 < Formula
       system "make"
       system "make install"
     end
+    # restore PATH
+    ENV["PATH"] = path
   end
 
 end
