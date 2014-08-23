@@ -46,7 +46,7 @@ class GccMingw32 < Formula
       --enable-threads=win32
       --disable-sjlj-exceptions
       --enable-languages=c,c++,objc,obj-c++
-      --program-suffix=-#{version_suffix}
+      --program-suffix=-#{version_suffix}-mingw32
       --with-gmp=#{Formula["gmp4"].opt_prefix}
       --with-mpfr=#{Formula["mpfr2"].opt_prefix}
       --with-mpc=#{Formula["libmpc08"].opt_prefix}
