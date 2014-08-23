@@ -6,8 +6,9 @@ class RuntimeMingw32 < Formula
   sha256 "ece7a7e7e1ab5e25d5ce469f8e4de7223696146fffa71c16e2a9b017d0e017d2"
 
   depends_on "gcc48" => :build
-  depends_on "cosmo0920/mingw_w64/binutils-mingw64"
-  depends_on "cosmo0920/mingw_w64/mingw-headers64"
+  depends_on "cosmo0920/mingw_w64/binutils-mingw32"
+  depends_on "cosmo0920/mingw_w64/mingw-headers32"
+  depends_on "cosmo0920/mingw_w64/gcc-mingw32"
 
   def install
     install_prefix="/usr/local/mingw/"
