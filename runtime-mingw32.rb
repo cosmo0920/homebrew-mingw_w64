@@ -32,8 +32,8 @@ class RuntimeMingw32 < Formula
       --disable-lib64 --enable-lib32
     ]
 
-    mkdir "build-crt" do
-      system "../mingw-w64-crt/configure", *args
+    chdir "mingw-w64-crt" do
+      system "./configure", *args
       system "make"
       system "make install"
     end
