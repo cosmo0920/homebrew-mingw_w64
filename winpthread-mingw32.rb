@@ -12,10 +12,6 @@ class WinpthreadMingw32 < Formula
     target_arch="i686-w64-mingw32"
     install_prefix="/usr/local/mingw/#{target_arch}"
     args = %W[
-      CC=i686-w64-mingw32-gcc
-      CXX=i686-w64-mingw32-g++
-      CPP=i686-w64-mingw32-cpp
-      LD=i686-w64-mingw32-gcc
       --host=#{target_arch}
       --prefix=#{install_prefix}
     ]
