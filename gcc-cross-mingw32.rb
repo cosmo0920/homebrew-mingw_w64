@@ -7,6 +7,7 @@ class GccCrossMingw32 < Formula
 
   depends_on "gcc48" => :build
   depends_on "cosmo0920/mingw_w64/gcc-mingw32"
+  depends_on "cosmo0920/mingw_w64/runtime-mingw32"
 
 
   def install
