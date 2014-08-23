@@ -22,10 +22,10 @@ class GccCrossMingw32 < Formula
     end
 
     args = %W[
-       CC=gcc-4.8
-       CXX=g++-4.8
-       CPP=cpp-4.8
-       LD=gcc-4.8
+      CC=gcc-4.8
+      CXX=g++-4.8
+      CPP=cpp-4.8
+      LD=gcc-4.8
       --target=#{target_arch}
       --prefix=#{install_prefix}
       --with-sysroot=#{install_prefix}
