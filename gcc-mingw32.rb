@@ -18,7 +18,7 @@ class GccMingw32 < Formula
     install_prefix="/usr/local/mingw/"
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
-    target_arch = i686-w64-mingw32
+    target_arch = "i686-w64-mingw32"
 
     # create symlink to `/usr/local/mingw//mingw/include`
     chdir "#{install_prefix}" do
