@@ -18,6 +18,9 @@ class GccMingw32 < Formula
     install_prefix="/usr/local/mingw/"
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
+
+    version_suffix = version.to_s.slice(/\d\.\d/)
+
     args = %W[
       CC=gcc-4.8
       CXX=g++-4.8
