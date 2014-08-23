@@ -53,7 +53,7 @@ class GccMingw64 < Formula
       --with-isl=#{Formula["isl011"].opt_prefix}
     ]
 
-    mkdir "build32" do
+    mkdir "build64" do
       system "../configure", *args
       system "make all-gcc"
       system "make install-gcc"
