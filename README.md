@@ -31,4 +31,4 @@ $ brew install <mingw_w64 formula>
 
 ### LICENSE
 
-[MIT)(LICENSE.txt).
+[MIT](LICENSE.txt).
