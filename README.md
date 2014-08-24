@@ -29,6 +29,10 @@ $ brew install <mingw_w64 formula>
 * winpthread-mingw32(32|64)
     - install mingw-winpthread
 
+### install dir
+
+These formula tries to install mingw-w64 toolchain into `/usr/local/mingw`.
+
 ### LICENSE
 
 [MIT](LICENSE.txt).
