@@ -14,6 +14,7 @@ and then,
 ```bash
 $ brew install <mingw_w64 formula>
 ```
+### Contents
 
 * binutils-mingw(32|64)
     - install mingw-w64 binutils
@@ -27,3 +28,7 @@ $ brew install <mingw_w64 formula>
     - install mingw-runtime
 * winpthread-mingw32(32|64)
     - install mingw-winpthread
+
+### LICENSE
+
+[MIT)(LICENSE.txt).
