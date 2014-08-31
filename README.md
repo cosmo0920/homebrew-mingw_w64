@@ -33,6 +33,8 @@ $ brew install <mingw_w64 formula>
 
 These formula tries to install mingw-w64 toolchain into `/usr/local/mingw`.
 
+To use mingw-w64 compilers, add PATH into `/usr/local/mingw/bin`.
+
 ### LICENSE
 
 [MIT](LICENSE.txt).
