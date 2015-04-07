@@ -35,6 +35,11 @@ These formula tries to install mingw-w64 toolchain into `/usr/local/mingw`.
 
 To use mingw-w64 compilers, add PATH into `/usr/local/mingw/bin`.
 
+### installing gcc and binutils version
+
+* gcc 4.8.3
+* binutils 2.24
+
 ### LICENSE
 
 [MIT](LICENSE.txt).
