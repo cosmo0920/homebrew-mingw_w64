@@ -18,7 +18,7 @@ class GccCrossMingw32 < Formula
     # create symlink to `/usr/local/mingw//mingw/include`
     chdir "#{install_prefix}" do
       rm "mingw" if Dir.exist?("mingw")
-      ln "-s", "#{target_arch}", "mingw"
+      ln_s "#{target_arch}", "mingw"
     end
 
     args = %W[
@@ -53,7 +53,7 @@ class GccCrossMingw32 < Formula
     end
 
     chdir "#{install_prefix}/#{target_arch}/lib" do
-      ln "-s", "../../lib/gcc/#{target_arch}/lib/libgcc_s.a", "./"
+      ln_s "../../lib/gcc/#{target_arch}/lib/libgcc_s.a", "./"
     end
 
     # restore PATH

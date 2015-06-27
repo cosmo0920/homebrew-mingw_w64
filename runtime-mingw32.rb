@@ -19,7 +19,7 @@ class RuntimeMingw32 < Formula
     # create symlink to `/usr/local/mingw//mingw/include`
     chdir "#{install_prefix}" do
       rm "mingw" if Dir.exist?("mingw")
-      ln "-s", "#{target_arch}", "mingw"
+      ln_s "#{target_arch}", "mingw"
     end
 
     args = %W[
