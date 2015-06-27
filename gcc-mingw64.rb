@@ -22,8 +22,8 @@ class GccMingw64 < Formula
 
     # create symlink to `/usr/local/mingw//mingw/include`
     chdir "#{install_prefix}" do
-      system "rm mingw" if Dir.exist?("mingw")
-      system "ln -s #{target_arch} mingw"
+      rm "mingw" if Dir.exist?("mingw")
+      ln "-s", "#{target_arch}", "mingw"
     end
 
     args = %W[
