@@ -1,8 +1,8 @@
 require "formula"
 
 class WinpthreadMingw64 < Formula
-  homepage "http://mingw-w64.sourceforge.net/"
-  url "http://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v3.1.0.tar.bz2"
+  homepage "https://mingw-w64.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v3.1.0.tar.bz2"
   sha256 "ece7a7e7e1ab5e25d5ce469f8e4de7223696146fffa71c16e2a9b017d0e017d2"
 
   depends_on "gcc48" => :build
