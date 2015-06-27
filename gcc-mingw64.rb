@@ -1,7 +1,7 @@
 require "formula"
 
 class GccMingw64 < Formula
-  homepage "http://gcc.gnu.org"
+  homepage "https://gcc.gnu.org"
   url "ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.3/gcc-4.8.3.tar.bz2"
   sha256 "6a8e4f11b185f4fe2ed9d7fc053e80f8c7e73f800c045f51f9d8bea33f080f1e"
 
@@ -22,8 +22,8 @@ class GccMingw64 < Formula
 
     # create symlink to `/usr/local/mingw//mingw/include`
     chdir "#{install_prefix}" do
-      system "rm mingw" if Dir.exist?("mingw")
-      system "ln -s #{target_arch} mingw"
+      rm "mingw" if Dir.exist?("mingw")
+      ln_s "#{target_arch}", "mingw"
     end
 
     args = %W[

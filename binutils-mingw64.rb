@@ -1,8 +1,8 @@
 require "formula"
 
 class BinutilsMingw64 < Formula
-  homepage "http://mingw-w64.sourceforge.net/"
-  url "http://ftp.gnu.org/gnu/binutils/binutils-2.24.tar.bz2"
+  homepage "https://mingw-w64.sourceforge.net/"
+  url "http://ftpmirror.gnu.org/binutils/binutils-2.24.tar.bz2"
   sha256 "e5e8c5be9664e7f7f96e0d09919110ab5ad597794f5b1809871177a0f0f14137"
 
   depends_on "gcc48" => :build

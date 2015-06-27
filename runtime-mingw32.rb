@@ -1,8 +1,8 @@
 require "formula"
 
 class RuntimeMingw32 < Formula
-  homepage "http://mingw-w64.sourceforge.net/"
-  url "http://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v3.1.0.tar.bz2"
+  homepage "https://mingw-w64.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v3.1.0.tar.bz2"
   sha256 "ece7a7e7e1ab5e25d5ce469f8e4de7223696146fffa71c16e2a9b017d0e017d2"
 
   depends_on "gcc48" => :build
@@ -18,8 +18,8 @@ class RuntimeMingw32 < Formula
 
     # create symlink to `/usr/local/mingw//mingw/include`
     chdir "#{install_prefix}" do
-      system "rm mingw" if Dir.exist?("mingw")
-      system "ln -s #{target_arch} mingw"
+      rm "mingw" if Dir.exist?("mingw")
+      ln_s "#{target_arch}", "mingw"
     end
 
     args = %W[
