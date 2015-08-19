@@ -7,6 +7,7 @@ To use these formulae,
 
 ```bash
 $ brew tap cosmo0920/mingw_w64
+$ brew tap homebrew/versions
 ```
 
 and then,
