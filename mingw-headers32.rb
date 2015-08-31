@@ -8,7 +8,7 @@ class MingwHeaders32 < Formula
   depends_on "gcc48" => :build
 
   def install
-    install_prefix="/usr/local/mingw/i686-w64-mingw32"
+    install_prefix=prefix+"/mingw/i686-w64-mingw32"
     args = %W[
       --host=i686-w64-mingw32
       --prefix=#{install_prefix}

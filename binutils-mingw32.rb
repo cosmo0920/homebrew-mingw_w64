@@ -8,7 +8,7 @@ class BinutilsMingw32 < Formula
   depends_on "gcc48" => :build
 
   def install
-    install_prefix="/usr/local/mingw"
+    install_prefix=prefix+"/mingw"
     args = %W[
       CC=gcc-4.8
       CXX=g++-4.8
