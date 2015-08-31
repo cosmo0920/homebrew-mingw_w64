@@ -10,7 +10,7 @@ class WinpthreadMingw32 < Formula
 
   def install
     target_arch="i686-w64-mingw32"
-    install_prefix="/usr/local/mingw/"
+    install_prefix=prefix+"/mingw"
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
 
