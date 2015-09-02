@@ -10,7 +10,7 @@ class GccCrossMingw64 < Formula
   depends_on "cosmo0920/mingw_w64/runtime-mingw64"
 
   def install
-    install_prefix=prefix+"/mingw"
+    install_prefix="#{HOMEBREW_PREFIX}/mingw"
     path = ENV["PATH"]
     ENV.prepend_path 'PATH', "#{install_prefix}/bin"
     target_arch = "x86_64-w64-mingw32"
