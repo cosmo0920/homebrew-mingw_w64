@@ -31,9 +31,10 @@ class WinpthreadMingw32 < Formula
     ENV["PATH"] = path
   end
 
-  def caveats
-    "If you uninstall or upgrade this formulae, please remove #{prefix}/mingw before you do it."
-    "This is an issue that is unfortunately for now."
-    "In more detail, see: https://github.com/cosmo0920/homebrew-mingw_w64/issues/1"
+  def caveats; <<-EOS.undent
+    If you uninstall or upgrade this formulae, please remove #{prefix}/mingw before you do it.
+    This is an issue that is unfortunately for now.
+    In more detail, see: https://github.com/cosmo0920/homebrew-mingw_w64/issues/1
+    EOS
   end
 end
