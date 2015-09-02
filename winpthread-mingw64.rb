@@ -32,7 +32,7 @@ class WinpthreadMingw64 < Formula
   end
 
   def caveats; <<-EOS.undent
-    If you uninstall or upgrade this formulae, please remove #{prefix}/mingw before you do it.
+    If you uninstall or upgrade this formula, please remove #{prefix}/mingw before you do it.
     This is an issue that is unfortunately for now.
     In more detail, see: https://github.com/cosmo0920/homebrew-mingw_w64/issues/1
     EOS
