@@ -2,18 +2,18 @@ require "formula"
 
 class BinutilsMingw64 < Formula
   homepage "https://mingw-w64.sourceforge.net/"
-  url "http://ftpmirror.gnu.org/binutils/binutils-2.24.tar.bz2"
-  sha256 "e5e8c5be9664e7f7f96e0d09919110ab5ad597794f5b1809871177a0f0f14137"
+  url "http://ftpmirror.gnu.org/binutils/binutils-2.25.1.tar.bz2"
+  sha256 "b5b14added7d78a8d1ca70b5cb75fef57ce2197264f4f5835326b0df22ac9f22"
 
-  depends_on "gcc48" => :build
+  depends_on "gcc49" => :build
 
   def install
     install_prefix="#{HOMEBREW_PREFIX}/mingw"
     args = %W[
-      CC=gcc-4.8
-      CXX=g++-4.8
-      CPP=cpp-4.8
-      LD=gcc-4.8
+      CC=gcc-4.9
+      CXX=g++-4.9
+      CPP=cpp-4.9
+      LD=gcc-4.9
       --target=x86_64-w64-mingw32
       --disable-werror
       --disable-multilib

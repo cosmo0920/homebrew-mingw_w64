@@ -2,10 +2,10 @@ require "formula"
 
 class WinpthreadMingw32 < Formula
   homepage "https://mingw-w64.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v3.1.0.tar.bz2"
-  sha256 "ece7a7e7e1ab5e25d5ce469f8e4de7223696146fffa71c16e2a9b017d0e017d2"
+  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.2.tar.bz2"
+  sha256 "3e9050a8c6689ef8a0cfafa40a7653e8c347cf93c105d547239c573afe7b8952"
 
-  depends_on "gcc48" => :build
+  depends_on "gcc49" => :build
   depends_on "cosmo0920/mingw_w64/gcc-cross-mingw32"
 
   def install

@@ -2,13 +2,13 @@ require "formula"
 
 class RuntimeMingw64 < Formula
   homepage "https://mingw-w64.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v3.1.0.tar.bz2"
-  sha256 "ece7a7e7e1ab5e25d5ce469f8e4de7223696146fffa71c16e2a9b017d0e017d2"
+  url "http://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.4.tar.bz2"
+  sha256 "89356a0aa8cf9f8b9dc8d92bc8dd01a131d4750c3acb30c6350a406316c42199"
 
-  depends_on "gcc48" => :build
-  depends_on "cosmo0920/mingw_w64/binutils-mingw64"
-  depends_on "cosmo0920/mingw_w64/mingw-headers64"
-  depends_on "cosmo0920/mingw_w64/gcc-mingw64"
+  depends_on "gcc49" => :build
+  depends_on "cosmo0920/mingw_w64/binutils-mingw32"
+  depends_on "cosmo0920/mingw_w64/mingw-headers32"
+  depends_on "cosmo0920/mingw_w64/gcc-mingw32"
 
   def install
     install_prefix="#{HOMEBREW_PREFIX}/mingw"
