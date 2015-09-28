@@ -27,7 +27,7 @@ $ brew install <mingw_w64 formula>
     - install mingw-w64 headers
 * rutime-mingw(32|64)
     - install mingw-runtime
-* winpthread-mingw32(32|64)
+* winpthread-mingw(32|64)
     - install mingw-winpthread
 
 ### install dir
