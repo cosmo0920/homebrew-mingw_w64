@@ -21,6 +21,9 @@ class MingwHeaders32 < Formula
       system "make"
       system "make install"
     end
+
+    # Suppress empty installation warning
+    touch prefix/"no-warning"
   end
 
 end

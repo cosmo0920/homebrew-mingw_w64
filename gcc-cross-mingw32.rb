@@ -58,6 +58,9 @@ class GccCrossMingw32 < Formula
 
     # restore PATH
     ENV["PATH"] = path
+
+    # Suppress empty installation warning
+    touch prefix/"no-warning"
   end
 
 end
