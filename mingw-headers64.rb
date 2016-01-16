@@ -2,8 +2,8 @@ require "formula"
 
 class MingwHeaders64 < Formula
   homepage "https://mingw-w64.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.2.tar.bz2"
-  sha256 "3e9050a8c6689ef8a0cfafa40a7653e8c347cf93c105d547239c573afe7b8952"
+  url "http://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.4.tar.bz2"
+  sha256 "89356a0aa8cf9f8b9dc8d92bc8dd01a131d4750c3acb30c6350a406316c42199"
 
   depends_on "gcc49" => :build
 
@@ -21,6 +21,9 @@ class MingwHeaders64 < Formula
       system "make"
       system "make install"
     end
+
+    # Suppress empty installation warning
+    touch prefix/"no-warning"
   end
 
 end
