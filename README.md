@@ -1,6 +1,28 @@
 Homebrew Mingw-w64 Formulae
 ===
 
+## Sub command
+
+Unofficial Homebrew user-defined sub-command.
+
+To use this sub-command:
+
+```bash
+$ brew tap cosmo0920/mingw_w64
+$ brew tap homebrew/versions
+```
+
+and then,
+
+```bash
+$ brew install-mingw-w64
+```
+
+Finally, you can install `mingw-w64` named keg cellar.
+You can uninstall this cellar with `brew uninstall mingw-w64`.
+
+## Formulae (Deprecated)
+
 Unofficial Homebrew Mingw-w64 Formulae.
 
 To use these formulae,
@@ -36,7 +58,7 @@ These formula tries to install mingw-w64 toolchain into `/usr/local/mingw`.
 
 To use mingw-w64 compilers, add PATH into `/usr/local/mingw/bin`.
 
-### installing gcc, binutils, and mingw version
+## installing gcc, binutils, and mingw versions
 
 * gcc 4.9.3
 * binutils 2.25.1
