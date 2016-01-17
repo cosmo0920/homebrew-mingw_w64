@@ -3,7 +3,7 @@
 # brew crossmingw-w64: A command to cross building mingw-w64 to Homebrewize.
 #
 # Usage:
-#     brew crossmingw-w64
+#     brew install-mingw-w64
 #
 # Issues:
 #   If exists, write here.
