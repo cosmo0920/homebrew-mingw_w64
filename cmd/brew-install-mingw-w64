@@ -159,7 +159,7 @@ __brew_install_mingw_w64() {
         echo "Downloading gcc\n"
         wget -O ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2 http://ftpmirror.gnu.org/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.bz2
     else
-        echo "Already downloaded: gcc-${GCC_VERSION}.tar.bz2\n"
+        echo "Already downloaded: ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2\n"
     fi
 
     echo "Verify gcc-${GCC_VERSION} sha256sum"
