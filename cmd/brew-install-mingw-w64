@@ -55,7 +55,7 @@ __brew_install_mingw_w64() {
 
     brew tap homebrew/versions
 
-    brew install gcc5
+    brew install gcc49
     brew install wget
 
     #  mingw
