@@ -1,6 +1,6 @@
 #! /bin/bash -e
 
-# brew crossmingw-w64: A command to cross building mingw-w64 to Homebrewize.
+# brew install-mingw-w64: A command to cross building mingw-w64 to Homebrewize.
 #
 # Usage:
 #     brew install-mingw-w64
