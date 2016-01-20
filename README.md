@@ -1,7 +1,7 @@
 Homebrew Mingw-w64 Formulae
 ===
 
-## Sub command
+## Sub command (Recommended)
 
 Unofficial Homebrew user-defined sub-command.
 
