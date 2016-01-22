@@ -51,7 +51,7 @@ These formula tries to install mingw-w64 toolchain into each of `#{prefix}`.
 You can use these formulae's binaries to set PATH like this:
 
 ```bash
-export PATH=/usr/local/opt/i686-w64-mingw32-binutils/bin:/usr/local/opt/i686-w64-mingw32-gcc/bin:/usr/local/opt/x86_64-w64-mingw32-binutils/bin:/usr/local/opt/x86_64-w64-mingw32-gcc/bin:$PATH
+export PATH=/usr/local/opt/i686-w64-mingw32-binutils/bin:/usr/local/opt/i686-w64-mingw32-gcc/bin:/usr/local/opt/x86-64-w64-mingw32-binutils/bin:/usr/local/opt/x86-64-w64-mingw32-gcc/bin:$PATH
 ```
 
 ## installing gcc, binutils, and mingw versions
