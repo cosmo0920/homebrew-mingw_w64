@@ -1,0 +1,19 @@
+language: objective-c
+matrix:
+  include:
+    - env: OSX=10.11 ARCH=i686
+      os: osx
+      osx_image: xcode7.2
+      rvm: system
+    - env: OSX=10.11 ARCH=x86-64
+      os: osx
+      osx_image: xcode7.2
+      rvm: system
+
+install:
+  - brew tap homebrew/versions
+  - brew tap cosmo0920/mingw_w64
+
+script:
+  - export HOMEBREW_VERBOSE_USING_DOTS=1
+  - travis_wait 90 brew install cosmo0920/mingw_w64/${ARCH}-w64-mingw32-gcc
