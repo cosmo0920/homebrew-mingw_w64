@@ -46,7 +46,7 @@ $ brew install <mingw_w64 formula>
 
 ### install dir
 
-These formula tries to install mingw-w64 toolchain into each of `#{prefix}`.
+These formulae try to install mingw-w64 toolchain into each of `#{prefix}`.
 
 You can use these formulae's binaries to set PATH like this:
 
