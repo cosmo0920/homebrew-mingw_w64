@@ -1,4 +1,5 @@
 class X8664W64Mingw32Gcc < Formula
+  desc "Minimalist GNU for Windows with GCC."
   homepage "https://gcc.gnu.org"
   url "http://ftpmirror.gnu.org/gcc/gcc-4.9.3/gcc-4.9.3.tar.bz2"
   sha256 "2332b2a5a321b57508b9031354a8503af6fdfb868b8c1748d33028d100a8b67e"
