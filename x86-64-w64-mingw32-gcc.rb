@@ -23,6 +23,10 @@ class X8664W64Mingw32Gcc < Formula
     sha256 "89356a0aa8cf9f8b9dc8d92bc8dd01a131d4750c3acb30c6350a406316c42199"
   end
 
+  keg_only <<-EOS.undent
+    This formula is mainly used internally by other formulae.
+EOS
+
   depends_on "gcc49" => :build
   depends_on "gmp"
   depends_on "mpfr"
@@ -30,10 +34,6 @@ class X8664W64Mingw32Gcc < Formula
   depends_on "cloog018"
   depends_on "isl012"
   depends_on "cosmo0920/mingw_w64/x86-64-w64-mingw32-binutils" => :build
-
-  keg_only <<-EOS.undent
-    This formula is mainly used internally by other formulae.
-EOS
 
   def install
     target_arch = "x86_64-w64-mingw32"
@@ -50,7 +50,7 @@ EOS
       mkdir "build-headers" do
         system "../mingw-w64-headers/configure", *args
         system "make"
-        system "make install"
+        system "make", "install"
       end
 
       # create symlink to `#{prefix}//mingw/include`
@@ -92,8 +92,8 @@ EOS
 
       mkdir "build32" do
         system "../configure", *args
-        system "make all-gcc"
-        system "make install-gcc"
+        system "make", "all-gcc"
+        system "make", "install-gcc"
       end
     end
 
@@ -113,7 +113,7 @@ EOS
       chdir "mingw-w64-crt" do
         system "./configure", *args
         system "make"
-        system "make install"
+        system "make", "install"
       end
     end
 
@@ -152,7 +152,7 @@ EOS
     mkdir "build32-cross" do
       system "../configure", *args
       system "make"
-      system "make install"
+      system "make", "install"
     end
 
     chdir "#{prefix}/#{target_arch}/lib" do
@@ -175,7 +175,7 @@ EOS
       chdir "mingw-w64-libraries/winpthreads" do
         system "./configure", *args
         system "make"
-        system "make install-strip"
+        system "make", "install-strip"
       end
     end
   end
