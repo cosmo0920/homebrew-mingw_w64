@@ -1,5 +1,3 @@
-require "formula"
-
 class I686W64Mingw32Binutils < Formula
   homepage "https://mingw-w64.sourceforge.net/"
   url "http://ftpmirror.gnu.org/binutils/binutils-2.25.1.tar.bz2"
@@ -28,5 +26,4 @@ EOS
     system "make"
     system "make", "install-strip"
   end
-
 end

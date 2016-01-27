@@ -54,7 +54,7 @@ EOS
       end
 
       # create symlink to `#{prefix}//mingw/include`
-      chdir "#{install_prefix}" do
+      chdir install_prefix.to_s do
         rm "mingw" if Dir.exist?("mingw")
         ln_s "#{prefix}/#{target_arch}", "#{prefix}/mingw"
       end
@@ -80,8 +80,8 @@ EOS
         --enable-languages=c,c++,objc,obj-c++
         --with-gnu-as
         --with-gnu-ld
-        --with-ld=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/'x86_64-w64-mingw32-ld'}
-        --with-as=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/'x86_64-w64-mingw32-as'}
+        --with-ld=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/"x86_64-w64-mingw32-ld"}
+        --with-as=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/"x86_64-w64-mingw32-as"}
         --with-gmp=#{Formula["gmp4"].opt_prefix}
         --with-mpfr=#{Formula["mpfr2"].opt_prefix}
         --with-mpc=#{Formula["libmpc08"].opt_prefix}
@@ -98,7 +98,7 @@ EOS
     end
 
     resource("mingw-runtime").stage do
-      ENV.prepend_path 'PATH', bin
+      ENV.prepend_path "PATH", bin
 
       args = %W[
         CC=#{target_arch}-gcc
@@ -119,7 +119,7 @@ EOS
 
     # build cross gcc
     path = ENV["PATH"]
-    ENV.prepend_path 'PATH', bin
+    ENV.prepend_path "PATH", bin
     args = %W[
       CC=gcc-4.9
       CXX=g++-4.9
@@ -139,8 +139,8 @@ EOS
       --enable-languages=c,c++,objc,obj-c++
       --with-gnu-as
       --with-gnu-ld
-      --with-ld=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/'x86_64-w64-mingw32-ld'}
-      --with-as=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/'x86_64-w64-mingw32-as'}
+      --with-ld=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/"x86_64-w64-mingw32-ld"}
+      --with-as=#{Formula["x86-64-w64-mingw32-binutils"].opt_bin/"x86_64-w64-mingw32-as"}
       --with-gmp=#{Formula["gmp4"].opt_prefix}
       --with-mpfr=#{Formula["mpfr2"].opt_prefix}
       --with-mpc=#{Formula["libmpc08"].opt_prefix}
