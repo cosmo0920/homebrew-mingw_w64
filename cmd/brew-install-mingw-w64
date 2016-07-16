@@ -56,7 +56,7 @@ __brew_install_mingw_w64() {
     brew tap homebrew/versions
 
     brew install gcc49
-    brew install gmp4 libmpc08 mpfr2 cloog018 isl011
+    brew install gmp4 libmpc08 mpfr2 cloog018 isl012
     brew install wget
 
     #  mingw
@@ -180,7 +180,7 @@ __brew_install_mingw_w64() {
     mkdir build32
     cd build32
 
-    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=i686-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp4/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr2/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc08/ --with-cloog=${HOMEBREW_PREFIX}/opt/cloog018 --with-isl=${HOMEBREW_PREFIX}/opt/isl011/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --disable-sjlj-exceptions --prefix=$PREFIX --with-sysroot=$PREFIX
+    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=i686-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp4/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr2/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc08/ --with-cloog=${HOMEBREW_PREFIX}/opt/cloog018 --with-isl=${HOMEBREW_PREFIX}/opt/isl012/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --disable-sjlj-exceptions --prefix=$PREFIX --with-sysroot=$PREFIX
 
     PATH=${PREFIX}/bin/:$PATH make all-gcc -j4
     PATH=${PREFIX}/bin/:$PATH make install-gcc
@@ -195,7 +195,7 @@ __brew_install_mingw_w64() {
     mkdir build64
     cd build64
 
-    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=x86_64-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp4/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr2/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc08/ --with-cloog=${HOMEBREW_PREFIX}/opt/cloog018 --with-isl=${HOMEBREW_PREFIX}/opt/isl011/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --prefix=$PREFIX --with-sysroot=$PREFIX
+    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=x86_64-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp4/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr2/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc08/ --with-cloog=${HOMEBREW_PREFIX}/opt/cloog018 --with-isl=${HOMEBREW_PREFIX}/opt/isl012/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --prefix=$PREFIX --with-sysroot=$PREFIX
 
     PATH=${PREFIX}/bin/:$PATH make all-gcc -j4
     PATH=${PREFIX}/bin/:$PATH make install-gcc
