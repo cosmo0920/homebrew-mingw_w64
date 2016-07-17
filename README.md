@@ -57,8 +57,8 @@ export PATH=/usr/local/opt/i686-w64-mingw32-binutils/bin:/usr/local/opt/i686-w64
 ## installing gcc, binutils, and mingw versions
 
 * gcc 4.9.3
-* binutils 2.25.1
-* mingw 4.0.4
+* binutils 2.26.1
+* mingw 4.0.6
 
 ### LICENSE
 
