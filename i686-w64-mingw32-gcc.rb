@@ -5,6 +5,14 @@ class I686W64Mingw32Gcc < Formula
   sha256 "2332b2a5a321b57508b9031354a8503af6fdfb868b8c1748d33028d100a8b67e"
   revision 2
 
+  depends_on "gcc49" => :build
+  depends_on "gmp"
+  depends_on "mpfr"
+  depends_on "libmpc"
+  depends_on "cloog018"
+  depends_on "isl012"
+  depends_on "cosmo0920/mingw_w64/i686-w64-mingw32-binutils" => :build
+
   resource "mingw-headers" do
     url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.6.tar.bz2"
     sha256 "0c407394b0d8635553f4fbca674cdfe446aac223e90b4010603d863e4bdd015c"
@@ -24,14 +32,6 @@ class I686W64Mingw32Gcc < Formula
     url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.6.tar.bz2"
     sha256 "0c407394b0d8635553f4fbca674cdfe446aac223e90b4010603d863e4bdd015c"
   end
-
-  depends_on "gcc49" => :build
-  depends_on "gmp"
-  depends_on "mpfr"
-  depends_on "libmpc"
-  depends_on "cloog018"
-  depends_on "isl012"
-  depends_on "cosmo0920/mingw_w64/i686-w64-mingw32-binutils" => :build
 
   def install
     target_arch = "i686-w64-mingw32"
@@ -53,7 +53,7 @@ class I686W64Mingw32Gcc < Formula
 
       chdir install_prefix.to_s do
         rm "mingw" if Dir.exist?("mingw")
-        ln_s "#{install_prefix}", "#{libexec}/mingw"
+        ln_s install_prefix.to_s, "#{libexec}/mingw"
       end
     end
 
@@ -95,7 +95,6 @@ class I686W64Mingw32Gcc < Formula
       end
     end
 
-    path = ENV["PATH"]
     ENV.prepend_path "PATH", "#{libexec}/bin"
 
     resource("mingw-runtime").stage do
