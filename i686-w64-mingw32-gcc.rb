@@ -172,5 +172,7 @@ class I686W64Mingw32Gcc < Formula
         system "make", "install-strip"
       end
     end
+
+    bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 end
