@@ -1,7 +1,7 @@
 Homebrew Mingw-w64 Formulae
 ===
 
-## Sub command (Recommended)
+## Sub command
 
 Unofficial Homebrew user-defined sub-command.
 
@@ -46,13 +46,10 @@ $ brew install <mingw_w64 formula>
 
 ### install dir
 
-These formulae try to install mingw-w64 toolchain into each of `#{prefix}`.
+These formulae try to install mingw-w64 toolchain into each of `#{prefix}/libexec`.
 
-You can use these formulae's binaries to set PATH like this:
-
-```bash
-export PATH=/usr/local/opt/i686-w64-mingw32-binutils/bin:/usr/local/opt/i686-w64-mingw32-gcc/bin:/usr/local/opt/x86-64-w64-mingw32-binutils/bin:/usr/local/opt/x86-64-w64-mingw32-gcc/bin:$PATH
-```
+And now, `keg_only` attributes has been removed by #11.
+You can use `mingw32-gcc`s without additional environment variables.
 
 ## installing gcc, binutils, and mingw versions
 
