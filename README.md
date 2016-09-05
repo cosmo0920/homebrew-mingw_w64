@@ -48,7 +48,7 @@ $ brew install <mingw_w64 formula>
 
 These formulae try to install mingw-w64 toolchain into each of `#{prefix}/libexec`.
 
-And now, `keg_only` attributes has been removed by #11.
+And now, `keg_only` attributes has been removed by [pull#11](https://github.com/cosmo0920/homebrew-mingw_w64/pull/11).
 You can use `mingw32-gcc`s without additional environment variables.
 
 ## installing gcc, binutils, and mingw versions
