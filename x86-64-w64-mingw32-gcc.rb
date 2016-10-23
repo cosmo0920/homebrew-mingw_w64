@@ -5,6 +5,7 @@ class X8664W64Mingw32Gcc < Formula
   sha256 "9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
 
   depends_on "gcc6" => :build
+  depends_on "texinfo" => :build
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "libmpc"
@@ -81,7 +82,7 @@ class X8664W64Mingw32Gcc < Formula
         --with-mpfr=#{Formula["mpfr"].opt_prefix}
         --with-mpc=#{Formula["libmpc"].opt_prefix}
         --with-isl=#{Formula["isl014"].opt_prefix}
-        MAKEINFO=missing
+        MAKEINFO=#{Formula["texinfo"].opt_bin}/makeinfo
       ]
 
       mkdir "build32" do
@@ -137,7 +138,7 @@ class X8664W64Mingw32Gcc < Formula
       --with-mpfr=#{Formula["mpfr"].opt_prefix}
       --with-mpc=#{Formula["libmpc"].opt_prefix}
       --with-isl=#{Formula["isl014"].opt_prefix}
-      MAKEINFO=missing
+      MAKEINFO=#{Formula["texinfo"].opt_bin}/makeinfo
     ]
 
     mkdir "build32-cross" do
