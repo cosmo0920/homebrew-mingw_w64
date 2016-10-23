@@ -4,12 +4,11 @@ class I686W64Mingw32Gcc < Formula
   url "https://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
   sha256 "9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
 
-  depends_on "gcc49" => :build
+  depends_on "gcc6" => :build
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "libmpc"
-  depends_on "cloog018"
-  depends_on "isl012"
+  depends_on "isl014"
   depends_on "cosmo0920/mingw_w64/i686-w64-mingw32-binutils" => :build
 
   resource "mingw-headers" do
@@ -79,11 +78,10 @@ class I686W64Mingw32Gcc < Formula
         --with-gnu-ld
         --with-ld=#{Formula["i686-w64-mingw32-binutils"].opt_bin/"i686-w64-mingw32-ld"}
         --with-as=#{Formula["i686-w64-mingw32-binutils"].opt_bin/"i686-w64-mingw32-as"}
-        --with-gmp=#{Formula["gmp4"].opt_prefix}
-        --with-mpfr=#{Formula["mpfr2"].opt_prefix}
-        --with-mpc=#{Formula["libmpc08"].opt_prefix}
-        --with-cloog=#{Formula["cloog018"].opt_prefix}
-        --with-isl=#{Formula["isl012"].opt_prefix}
+        --with-gmp=#{Formula["gmp"].opt_prefix}
+        --with-mpfr=#{Formula["mpfr"].opt_prefix}
+        --with-mpc=#{Formula["libmpc"].opt_prefix}
+        --with-isl=#{Formula["isl014"].opt_prefix}
         MAKEINFO=missing
       ]
 
@@ -137,11 +135,10 @@ class I686W64Mingw32Gcc < Formula
       --with-gnu-ld
       --with-ld=#{Formula["i686-w64-mingw32-binutils"].opt_bin/"i686-w64-mingw32-ld"}
       --with-as=#{Formula["i686-w64-mingw32-binutils"].opt_bin/"i686-w64-mingw32-as"}
-      --with-gmp=#{Formula["gmp4"].opt_prefix}
-      --with-mpfr=#{Formula["mpfr2"].opt_prefix}
-      --with-mpc=#{Formula["libmpc08"].opt_prefix}
-      --with-cloog=#{Formula["cloog018"].opt_prefix}
-      --with-isl=#{Formula["isl012"].opt_prefix}
+      --with-gmp=#{Formula["gmp"].opt_prefix}
+      --with-mpfr=#{Formula["mpfr"].opt_prefix}
+      --with-mpc=#{Formula["libmpc"].opt_prefix}
+      --with-isl=#{Formula["isl014"].opt_prefix}
       MAKEINFO=missing
     ]
 
