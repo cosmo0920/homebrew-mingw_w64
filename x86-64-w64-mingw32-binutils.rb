@@ -26,4 +26,8 @@ class X8664W64Mingw32Binutils < Formula
 
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/x86_64-w64-mingw32-ld --version")
+  end
 end

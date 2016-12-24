@@ -172,4 +172,8 @@ class I686W64Mingw32Gcc < Formula
 
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/i686-w64-mingw32-gcc --version")
+  end
 end
