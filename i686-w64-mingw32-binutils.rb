@@ -5,7 +5,7 @@ class I686W64Mingw32Binutils < Formula
   sha256 "39c346c87aa4fb14b2f786560aec1d29411b6ec34dce3fe7309fe3dd56949fd8"
   revision 2
 
-  depends_on "gcc6" => :build
+  depends_on "gcc@6" => :build
 
   def install
     target_arch = "i686-w64-mingw32"
