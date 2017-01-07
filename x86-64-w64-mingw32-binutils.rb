@@ -3,7 +3,7 @@ class X8664W64Mingw32Binutils < Formula
   homepage "https://mingw-w64.org"
   url "https://ftpmirror.gnu.org/binutils/binutils-2.26.1.tar.bz2"
   sha256 "39c346c87aa4fb14b2f786560aec1d29411b6ec34dce3fe7309fe3dd56949fd8"
-  revision 2
+  revision 3
 
   depends_on "gcc@6" => :build
 
