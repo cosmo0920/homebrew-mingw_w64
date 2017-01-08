@@ -9,7 +9,6 @@ To use this sub-command:
 
 ```bash
 $ brew tap cosmo0920/mingw_w64
-$ brew tap homebrew/versions
 ```
 
 and then,
@@ -29,7 +28,6 @@ To use these formulae,
 
 ```bash
 $ brew tap cosmo0920/mingw_w64
-$ brew tap homebrew/versions
 ```
 
 and then,
