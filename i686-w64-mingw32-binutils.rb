@@ -3,9 +3,9 @@ class I686W64Mingw32Binutils < Formula
   homepage "https://mingw-w64.org"
   url "https://ftpmirror.gnu.org/binutils/binutils-2.26.1.tar.bz2"
   sha256 "39c346c87aa4fb14b2f786560aec1d29411b6ec34dce3fe7309fe3dd56949fd8"
-  revision 3
+  revision 4
 
-  depends_on "gcc@6" => :build
+  depends_on "gcc" => :build
 
   def install
     target_arch = "i686-w64-mingw32"

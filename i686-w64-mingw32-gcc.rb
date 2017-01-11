@@ -3,9 +3,9 @@ class I686W64Mingw32Gcc < Formula
   homepage "https://gcc.gnu.org"
   url "https://ftpmirror.gnu.org/gcc/gcc-6.2.0/gcc-6.2.0.tar.bz2"
   sha256 "9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
-  revision 1
+  revision 2
 
-  depends_on "gcc@6" => :build
+  depends_on "gcc" => :build
   depends_on "texinfo" => :build
   depends_on "gmp"
   depends_on "mpfr"
