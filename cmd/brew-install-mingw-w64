@@ -55,7 +55,7 @@ __brew_install_mingw_w64() {
 
     brew tap homebrew/versions
 
-    brew install gcc@6
+    brew install gcc
     brew install gmp libmpc mpfr isl@0.14
     brew install wget
 
@@ -66,8 +66,8 @@ __brew_install_mingw_w64() {
     BINUTILS_VERSION="2.26.1"
     BINUTILS_SHA256="39c346c87aa4fb14b2f786560aec1d29411b6ec34dce3fe7309fe3dd56949fd8"
     GCC_MAJOR="6"
-    GCC_VERSION="6.2.0"
-    GCC_SHA256="9944589fc722d3e66308c0ce5257788ebd7872982a718aa2516123940671b7c5"
+    GCC_VERSION="6.3.0"
+    GCC_SHA256="f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
     PREFIX="${HOMEBREW_PREFIX}/Cellar/mingw-w64/${VERSION}"
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     cd $DIR
