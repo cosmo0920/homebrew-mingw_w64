@@ -53,8 +53,6 @@ __brew_install_mingw_w64() {
 
     # dependencies
 
-    brew tap homebrew/versions
-
     brew install gcc
     brew install gmp libmpc mpfr isl@0.14
     brew install wget
