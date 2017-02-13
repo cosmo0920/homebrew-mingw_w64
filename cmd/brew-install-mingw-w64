@@ -51,6 +51,14 @@ __brew_install_mingw_w64() {
         shift
     done
 
+    # validation
+    brew info mingw-w64 | grep -q bottled
+    ret=$?
+    if [ $ret -eq 0 ]; then
+	echo "This script conflicts with 'mingw-w64' formula."
+	exit 1
+    fi
+
     # dependencies
 
     brew install gcc
