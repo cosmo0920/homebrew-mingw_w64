@@ -7,6 +7,8 @@ class X8664W64Mingw32Binutils < Formula
 
   depends_on "gcc" => :build
 
+  conflicts_with "mingw-w64", :because => "homebrew-core has mingw-w64 formula"
+
   def install
     target_arch = "x86_64-w64-mingw32"
     args = %W[
@@ -25,6 +27,17 @@ class X8664W64Mingw32Binutils < Formula
     system "make", "install-strip"
 
     bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+
+  def caveats; <<-EOS.undent
+    All in one minge-w64 formula is merged in Homebrew-core.
+    That formula uses bottle mechanism.
+
+    Please consider to migrate and use `mingw-w64' formula.
+    This formula will continue to maintained for compatibility,
+    but users should move to use homebrew-core formula.
+    EOS
   end
 
   test do

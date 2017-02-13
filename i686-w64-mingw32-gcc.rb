@@ -13,6 +13,8 @@ class I686W64Mingw32Gcc < Formula
   depends_on "isl@0.14"
   depends_on "cosmo0920/mingw_w64/i686-w64-mingw32-binutils" => :build
 
+  conflicts_with "mingw-w64", :because => "homebrew-core has mingw-w64 formula"
+
   resource "mingw-headers" do
     url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v4.0.6.tar.bz2"
     sha256 "0c407394b0d8635553f4fbca674cdfe446aac223e90b4010603d863e4bdd015c"
@@ -173,6 +175,16 @@ class I686W64Mingw32Gcc < Formula
     end
 
     bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  def caveats; <<-EOS.undent
+    All in one minge-w64 formula is merged in Homebrew-core.
+    That formula uses bottle mechanism.
+
+    Please consider to migrate and use `mingw-w64' formula.
+    This formula will continue to maintained for compatibility,
+    but users should move to use homebrew-core formula.
+    EOS
   end
 
   test do
