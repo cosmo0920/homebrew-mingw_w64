@@ -52,28 +52,28 @@ __brew_install_mingw_w64() {
     done
 
     # validation
-    brew info mingw-w64 | grep -q bottled
+    brew info mingw-w64 | grep -q "Not installed"
     ret=$?
-    if [ $ret -eq 0 ]; then
-	echo "This script conflicts with 'mingw-w64' formula."
-	exit 1
+    if [ $ret -ne 0 ]; then
+        echo "This script conflicts with 'mingw-w64' formula."
+        exit 1
     fi
 
     # dependencies
 
     brew install gcc
-    brew install gmp libmpc mpfr isl@0.14
+    brew install gmp libmpc mpfr isl
     brew install wget
 
     #  mingw
 
-    VERSION="4.0.6"
-    MINGW_W64_SHA256="0c407394b0d8635553f4fbca674cdfe446aac223e90b4010603d863e4bdd015c"
-    BINUTILS_VERSION="2.26.1"
-    BINUTILS_SHA256="39c346c87aa4fb14b2f786560aec1d29411b6ec34dce3fe7309fe3dd56949fd8"
-    GCC_MAJOR="6"
-    GCC_VERSION="6.3.0"
-    GCC_SHA256="f06ae7f3f790fbf0f018f6d40e844451e6bc3b7bc96e128e63b09825c1f8b29f"
+    VERSION="5.0.2"
+    MINGW_W64_SHA256="5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
+    BINUTILS_VERSION="2.28"
+    BINUTILS_SHA256="6297433ee120b11b4b0a1c8f3512d7d73501753142ab9e2daa13c5a3edd32a72"
+    GCC_MAJOR="7"
+    GCC_VERSION="7.1.0"
+    GCC_SHA256="8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17"
     PREFIX="${HOMEBREW_PREFIX}/Cellar/mingw-w64/${VERSION}"
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     cd $DIR
@@ -84,10 +84,10 @@ __brew_install_mingw_w64() {
 
     cd ./source
     if [ ! -f ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2 ]; then
-	echo "Downloading binutils\n"
+        echo "Downloading binutils\n"
         wget -O ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2 http://ftpmirror.gnu.org/binutils/binutils-${BINUTILS_VERSION}.tar.bz2
     else
-	echo "Already downloaded: ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2\n"
+        echo "Already downloaded: ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2\n"
     fi
 
     echo "Verify binutils-${BINUTILS_VERSION} sha256sum"
@@ -186,7 +186,7 @@ __brew_install_mingw_w64() {
     mkdir build32
     cd build32
 
-    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=i686-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc/ --with-isl=${HOMEBREW_PREFIX}/opt/isl@0.14/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --disable-sjlj-exceptions --prefix=$PREFIX --with-sysroot=$PREFIX
+    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=i686-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc/ --with-isl=${HOMEBREW_PREFIX}/opt/isl/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --disable-sjlj-exceptions --prefix=$PREFIX --with-sysroot=$PREFIX
 
     PATH=${PREFIX}/bin/:$PATH make all-gcc -j4
     PATH=${PREFIX}/bin/:$PATH make install-gcc
@@ -201,7 +201,7 @@ __brew_install_mingw_w64() {
     mkdir build64
     cd build64
 
-    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=x86_64-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc/ --with-isl=${HOMEBREW_PREFIX}/opt/isl@0.14/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --prefix=$PREFIX --with-sysroot=$PREFIX
+    CC=gcc-${GCC_MAJOR} CXX=g++-${GCC_MAJOR} CPP=cpp-${GCC_MAJOR} LD=gcc-${GCC_MAJOR} PATH=${HOMEBREW_PREFIX}/mingw/bin/:$PATH ../configure --target=x86_64-w64-mingw32 --disable-multilib --enable-languages=c,c++,objc,obj-c++ --with-gmp=${HOMEBREW_PREFIX}/opt/gmp/ --with-mpfr=${HOMEBREW_PREFIX}/opt/mpfr/ --with-mpc=${HOMEBREW_PREFIX}/opt/libmpc/ --with-isl=${HOMEBREW_PREFIX}/opt/isl/ --with-system-zlib --enable-version-specific-runtime-libs --enable-libstdcxx-time=yes --enable-stage1-checking --enable-checking=release --enable-lto --enable-threads=win32 --prefix=$PREFIX --with-sysroot=$PREFIX
 
     PATH=${PREFIX}/bin/:$PATH make all-gcc -j4
     PATH=${PREFIX}/bin/:$PATH make install-gcc
