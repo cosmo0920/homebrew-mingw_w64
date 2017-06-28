@@ -131,6 +131,14 @@ __brew_install_mingw_w64() {
 
     tar xjf ${HOMEBREW_CACHE}/mingw-w64-v${VERSION}.tar.bz2 -C $DIR/source
 
+    # patch for divmoddi4. TODO: Remove me
+    if [ ! -f ${HOMEBREW_CACHE}/mdivmoddi4.patch ]; then
+        echo "Downloading divmoddi4.patch\n"
+        wget -O ${HOMEBREW_CACHE}/mdivmoddi4.patch "https://raw.githubusercontent.com/Homebrew/formula-patches/549c05c1f4/mingw-w64/mdivmoddi4.patch"
+    else
+        echo "Already downloaded: ${HOMEBREW_CACHE}/divmoddi4.patch\n"
+    fi
+
     echo "Building mingw-headers\n"
 
     echo "1/2 32-bit\n"
@@ -274,6 +282,12 @@ __brew_install_mingw_w64() {
     echo "Building winpthreads\n"
 
     cd $DIR/source/mingw-w64-v${VERSION}/mingw-w64-libraries/winpthreads
+
+    # TODO: Remove me
+    cd $DIR/source/mingw-w64-v${VERSION}/
+    echo "patching..."
+    patch -p1 -i ${HOMEBREW_CACHE}/mdivmoddi4.patch
+    cd -
 
     echo "1/2 32-Bit\n"
 
