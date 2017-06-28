@@ -1,9 +1,8 @@
 class X8664W64Mingw32Binutils < Formula
   desc "Binutils for minimalist GNU for Windows."
   homepage "https://mingw-w64.org"
-  url "https://ftpmirror.gnu.org/binutils/binutils-2.26.1.tar.bz2"
-  sha256 "39c346c87aa4fb14b2f786560aec1d29411b6ec34dce3fe7309fe3dd56949fd8"
-  revision 4
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.28.tar.gz"
+  sha256 "cd717966fc761d840d451dbd58d44e1e5b92949d2073d75b73fccb476d772fcf"
 
   depends_on "gcc" => :build
 
@@ -12,10 +11,10 @@ class X8664W64Mingw32Binutils < Formula
   def install
     target_arch = "x86_64-w64-mingw32"
     args = %W[
-      CC=gcc-6
-      CXX=g++-6
-      CPP=cpp-6
-      LD=gcc-6
+      CC=gcc-7
+      CXX=g++-7
+      CPP=cpp-7
+      LD=gcc-7
       --target=#{target_arch}
       --disable-werror
       --disable-multilib
