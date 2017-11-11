@@ -1,9 +1,9 @@
 class X8664W64Mingw32Gcc < Formula
   desc "Minimalist GNU for Windows with GCC."
   homepage "https://gcc.gnu.org"
-  url "https://ftpmirror.gnu.org/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-  sha256 "8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17"
+  url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+  sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
 
   depends_on "gcc" => :build
   depends_on "texinfo" => :build
@@ -16,31 +16,24 @@ class X8664W64Mingw32Gcc < Formula
   conflicts_with "mingw-w64", :because => "homebrew-core has mingw-w64 formula"
 
   resource "mingw-headers" do
-    url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
-    sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
+    url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.tar.bz2"
+    sha256 "2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
   end
 
   resource "gcc-core" do
-    url "https://ftpmirror.gnu.org/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-    mirror "https://ftp.gnu.org/gnu/gcc/gcc-7.1.0/gcc-7.1.0.tar.bz2"
-    sha256 "8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17"
+    url "https://ftp.gnu.org/gnu/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+    mirror "https://ftpmirror.gnu.org/gcc/gcc-7.2.0/gcc-7.2.0.tar.xz"
+    sha256 "1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
   end
 
   resource "mingw-runtime" do
-    url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
-    sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
+    url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.tar.bz2"
+    sha256 "2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
   end
 
   resource "mingw-winpthread" do
-    url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.2.tar.bz2"
-sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
-  end
-
-  # Patch for mingw-w64 5.0.2 with GCC 7
-  # https://sourceforge.net/p/mingw-w64/mingw-w64/ci/431ac2a912708546cd7271332e9331399e66bc62/
-  resource "divmoddi4.patch" do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/549c05c1f4/mingw-w64/divmoddi4.patch"
-    sha256 "a8323a12b25baec1335e617111effc9236b48ce1162a63c4898bf6be12680c42"
+    url "https://downloads.sourceforge.net/project/mingw-w64/mingw-w64/mingw-w64-release/mingw-w64-v5.0.3.tar.bz2"
+    sha256 "2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
   end
 
   def install
@@ -163,10 +156,6 @@ sha256 "5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
     end
 
     resource("mingw-winpthread").stage do
-      # stage and apply patch
-      buildpath.install resource("divmoddi4.patch")
-      system "patch", "-p1", "-i", buildpath/"divmoddi4.patch"
-
       ENV["LDPATH"] = "#{target_arch}/#{lib}"
       args = %W[
         CC=x86_64-w64-mingw32-gcc
