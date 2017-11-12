@@ -51,9 +51,9 @@ You can use `mingw32-gcc`s without additional environment variables.
 
 ## installing gcc, binutils, and mingw versions
 
-* gcc 7.1.0
-* binutils 2.28
-* mingw 5.0.2
+* gcc 7.2.0
+* binutils 2.29
+* mingw 5.0.3
 
 ### LICENSE
 
