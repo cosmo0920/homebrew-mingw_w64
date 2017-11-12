@@ -180,7 +180,7 @@ class X8664W64Mingw32Gcc < Formula
     That formula uses bottle mechanism.
 
     Please consider to migrate and use `mingw-w64' formula.
-    This formula will continue to maintained for compatibility,
+    This formula will continue to maintain for compatibility,
     but users should move to use homebrew-core formula.
     EOS
   end

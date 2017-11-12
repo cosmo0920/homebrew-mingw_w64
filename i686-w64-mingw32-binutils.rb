@@ -34,7 +34,7 @@ class I686W64Mingw32Binutils < Formula
     That formula uses bottle mechanism.
 
     Please consider to migrate and use `mingw-w64' formula.
-    This formula will continue to maintained for compatibility,
+    This formula will continue to maintain for compatibility,
     but users should move to use homebrew-core formula.
     EOS
   end
