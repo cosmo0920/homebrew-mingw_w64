@@ -67,13 +67,13 @@ __brew_install_mingw_w64() {
 
     #  mingw
 
-    VERSION="5.0.2"
-    MINGW_W64_SHA256="5f46e80ff1a9102a37a3453743dae9df98262cba7c45306549ef7432cfd92cfd"
-    BINUTILS_VERSION="2.28"
-    BINUTILS_SHA256="6297433ee120b11b4b0a1c8f3512d7d73501753142ab9e2daa13c5a3edd32a72"
+    VERSION="5.0.3"
+    MINGW_W64_SHA256="2a601db99ef579b9be69c775218ad956a24a09d7dabc9ff6c5bd60da9ccc9cb4"
+    BINUTILS_VERSION="2.29"
+    BINUTILS_SHA256="172e8c89472cf52712fd23a9f14e9bca6182727fb45b0f8f482652a83d5a11b4"
     GCC_MAJOR="7"
-    GCC_VERSION="7.1.0"
-    GCC_SHA256="8a8136c235f64c6fef69cac0d73a46a1a09bb250776a050aec8f9fc880bebc17"
+    GCC_VERSION="7.2.0"
+    GCC_SHA256="1cf7adf8ff4b5aa49041c8734bbcf1ad18cc4c94d0029aae0f4e48841088479a"
     PREFIX="${HOMEBREW_PREFIX}/Cellar/mingw-w64/${VERSION}"
     DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
     cd $DIR
@@ -130,14 +130,6 @@ __brew_install_mingw_w64() {
     echo "${MINGW_W64_SHA256}  ${HOMEBREW_CACHE}/mingw-w64-v${VERSION}.tar.bz2" | shasum -a256 -c /dev/stdin
 
     tar xjf ${HOMEBREW_CACHE}/mingw-w64-v${VERSION}.tar.bz2 -C $DIR/source
-
-    # patch for divmoddi4. TODO: Remove me
-    if [ ! -f ${HOMEBREW_CACHE}/mdivmoddi4.patch ]; then
-        echo "Downloading divmoddi4.patch\n"
-        wget -O ${HOMEBREW_CACHE}/mdivmoddi4.patch "https://raw.githubusercontent.com/Homebrew/formula-patches/549c05c1f4/mingw-w64/mdivmoddi4.patch"
-    else
-        echo "Already downloaded: ${HOMEBREW_CACHE}/divmoddi4.patch\n"
-    fi
 
     echo "Building mingw-headers\n"
 
@@ -282,12 +274,6 @@ __brew_install_mingw_w64() {
     echo "Building winpthreads\n"
 
     cd $DIR/source/mingw-w64-v${VERSION}/mingw-w64-libraries/winpthreads
-
-    # TODO: Remove me
-    cd $DIR/source/mingw-w64-v${VERSION}/
-    echo "patching..."
-    patch -p1 -i ${HOMEBREW_CACHE}/mdivmoddi4.patch
-    cd -
 
     echo "1/2 32-Bit\n"
 
