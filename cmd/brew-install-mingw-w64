@@ -93,7 +93,7 @@ __brew_install_mingw_w64() {
     echo "Verify binutils-${BINUTILS_VERSION} sha256sum"
     echo "${BINUTILS_SHA256}  ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz" | shasum -a256 -c /dev/stdin
 
-    tar xjf ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz -C $DIR/source
+    tar xf ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz -C $DIR/source
 
     echo "Building binutils\n"
     echo "1/2 32-bit\n"
@@ -129,7 +129,7 @@ __brew_install_mingw_w64() {
     echo "Verify mingw-w64-v${VERSION} sha256sum"
     echo "${MINGW_W64_SHA256}  ${HOMEBREW_CACHE}/mingw-w64-v${VERSION}.tar.bz2" | shasum -a256 -c /dev/stdin
 
-    tar xjf ${HOMEBREW_CACHE}/mingw-w64-v${VERSION}.tar.bz2 -C $DIR/source
+    tar xf ${HOMEBREW_CACHE}/mingw-w64-v${VERSION}.tar.bz2 -C $DIR/source
 
     echo "Building mingw-headers\n"
 
@@ -172,7 +172,7 @@ __brew_install_mingw_w64() {
     echo "Verify gcc-${GCC_VERSION} sha256sum"
     echo "${GCC_SHA256}  ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz" | shasum -a256 -c /dev/stdin
 
-    tar xjf ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz -C $DIR/source
+    tar xf ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz -C $DIR/source
 
     echo "Building core gcc\n"
 
