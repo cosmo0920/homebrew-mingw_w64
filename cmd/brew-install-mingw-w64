@@ -83,17 +83,17 @@ __brew_install_mingw_w64() {
 
 
     cd ./source
-    if [ ! -f ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2 ]; then
+    if [ ! -f ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz ]; then
         echo "Downloading binutils\n"
-        wget -O ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2 http://ftpmirror.gnu.org/binutils/binutils-${BINUTILS_VERSION}.tar.bz2
+        wget -O ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz http://ftpmirror.gnu.org/binutils/binutils-${BINUTILS_VERSION}.tar.gz
     else
-        echo "Already downloaded: ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2\n"
+        echo "Already downloaded: ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz\n"
     fi
 
     echo "Verify binutils-${BINUTILS_VERSION} sha256sum"
-    echo "${BINUTILS_SHA256}  ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2" | shasum -a256 -c /dev/stdin
+    echo "${BINUTILS_SHA256}  ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz" | shasum -a256 -c /dev/stdin
 
-    tar xjf ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.bz2 -C $DIR/source
+    tar xjf ${HOMEBREW_CACHE}/binutils-${BINUTILS_VERSION}.tar.gz -C $DIR/source
 
     echo "Building binutils\n"
     echo "1/2 32-bit\n"
@@ -162,17 +162,17 @@ __brew_install_mingw_w64() {
     cd $DIR/source/
 
 
-    if [ ! -f ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2 ]; then
+    if [ ! -f ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz ]; then
         echo "Downloading gcc\n"
-        wget -O ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2 http://ftpmirror.gnu.org/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.bz2
+        wget -O ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz http://ftpmirror.gnu.org/gcc/gcc-${GCC_VERSION}/gcc-${GCC_VERSION}.tar.xz
     else
-        echo "Already downloaded: ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2\n"
+        echo "Already downloaded: ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz\n"
     fi
 
     echo "Verify gcc-${GCC_VERSION} sha256sum"
-    echo "${GCC_SHA256}  ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2" | shasum -a256 -c /dev/stdin
+    echo "${GCC_SHA256}  ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz" | shasum -a256 -c /dev/stdin
 
-    tar xjf ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.bz2 -C $DIR/source
+    tar xjf ${HOMEBREW_CACHE}/gcc-${GCC_VERSION}.tar.xz -C $DIR/source
 
     echo "Building core gcc\n"
 
